@@ -23,6 +23,45 @@ let panelID = "my-info-panel";
  * init() is called when the page has loaded
  */
 function init() {
+if(!navigator.geolocation){
+  console.log(Your browser doesn't support geolocation feature!");
+}else{
+ navigator.geolocation.getCurrentPosition(getPosition);
+}
+var marker, circle, lat, long, accuracy;
+
+function getPosition(position) {
+  console.log(position)
+  lat = position.coords.latitude;
+  long = position.coords.longitude;
+  accuracy = position.coords.accuracy;
+  
+  if(marker){
+    map.removeLayer(marker);
+  }
+  
+  if(circle){
+    map.removeLayer(circle);
+  }
+  
+  var marker = L.marker([lat, long]);
+  var circle = L.circle([lat, long], {radius: accuracy});
+  
+  var featureGroup = L.featureGroup([marker,circle]).addTo(map);
+  
+  map.fitBounds(eatureGroup.getBounds());
+  
+  console.log(
+   "Your coordinate is:Lat:"+
+    lat+
+   "Long:"+
+   long+
+   "Accuracy:"+
+    accuracy
+    );
+   }
+    
+    
   // Create a new Leaflet map centered on the continental US
   map = L.map("map").setView([51.5, -0.1], 14);
 
@@ -36,6 +75,41 @@ function init() {
       maxZoom: 19,
     }
   ).addTo(map);
+  
+  var lating [[35.516364038805214,24.034876980809766],
+  [35.51535569432988,24.037809965682477],[35.51694502607038,24.038759400693166],
+  [35.518264584937626,24.038159286110936],[35.5172439335704,24.034692952628525],
+  [35.5172439335704,24.034486943145076],[35.516364038805214,24.034876980809766];
+  
+  var polygon =Lpolygon(latlings,{color 'pink',
+  }).addTo(map)
+  .bindPopup("<h1> NEW ARCHEOLOGICAL MUSEUM OF CHANIA </h1>");
+  
+  polygon.bindPopup("NEW ARCHEOLOGICAL MUSEUM OF CHANIA");
+     polygon.on('mouseover',function(e){
+       this.openPopup();
+     });
+     polygon.on('mouseout',function(e){
+       this.closePopup();
+     });
+
+  //zoom the map to the polygon
+  //map.fitBounds(polygon.getBounds());
+
+  var marker = L.marker([35.516364038805214,24.034876980809766],{
+  title:"Location of NEW ARCHEOLOGICAL MUSEUM OF CHANIA",
+  }).addTo(map)
+  .bindPopup("<h1> Location of NEW ARCHEOLOGICAL MUSEUM OF CHANIA </h1>");
+  
+   marker.bindPopup("Location of NEW ARCHEOLOGICAL MUSEUM OF CHANIA");
+     marker.on('mouseover',function(e){
+        this.openPopup();
+     });
+     marker.on('mouseout',function(e){
+         this.closePopup();
+     })
+
+       
 
   sidebar = L.control
     .sidebar({
