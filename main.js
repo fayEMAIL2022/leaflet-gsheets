@@ -94,7 +94,7 @@ function getPosition(position) {
   //zoom the map to the polygon
   //map.fitBounds(polygon.getBounds());
 
-  var marker = L.marker([35.516364038805214,24.034876980809766], {
+  var marker = L.marker([35.516300819660316, 24.01787454386398], {
   title:"Location of NEW ARCHEOLOGICAL MUSEUM OF CHANIA",
   }).addTo(map)
   .bindPopup("<h1> Location of NEW ARCHEOLOGICAL MUSEUM OF CHANIA </h1>");
