@@ -95,11 +95,11 @@ function getPosition(position) {
   //map.fitBounds(polygon.getBounds());
 
   var marker = L.marker([35.516300819660316, 24.01787454386398], {
-  title:"Location of NEW ARCHEOLOGICAL MUSEUM OF CHANIA",
+  title:"Location of Old Port Of CHANIA",
   }).addTo(map)
-  .bindPopup("<h1> Location of NEW ARCHEOLOGICAL MUSEUM OF CHANIA </h1>");
+  .bindPopup("<h1> Location of Old Port Of CHANIA </h1>");
   
-   marker.bindPopup("Location of NEW ARCHEOLOGICAL MUSEUM OF CHANIA");
+   marker.bindPopup("Location of Old Port Of CHANIA");
      marker.on('mouseover',function(e){
         this.openPopup();
      });
