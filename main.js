@@ -23,8 +23,8 @@ let panelID = "my-info-panel";
  * init() is called when the page has loaded
  */
 function init() {
-if(!navigator.geolocation){
-  console.log(Your browser doesn't support geolocation feature!");
+if (!navigator.geolocation) {
+  console.log("Your browser doesn't support geolocation feature!");
 } else {
  navigator.geolocation.getCurrentPosition(getPosition);
 }
