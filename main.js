@@ -25,7 +25,7 @@ let panelID = "my-info-panel";
 function init() {
 if(!navigator.geolocation){
   console.log(Your browser doesn't support geolocation feature!");
-}else{
+} else {
  navigator.geolocation.getCurrentPosition(getPosition);
 }
 var marker, circle, lat, long, accuracy;
